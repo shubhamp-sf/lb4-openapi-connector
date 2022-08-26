@@ -1,0 +1,24 @@
+{
+  "name": "UserRemote",
+  "connector": "rest",
+  "baseURL": "",
+  "crud": false,
+  "options": {
+    "baseURL": "USER_CRUD_BASE",
+    "headers": {
+      "accept": "application/json",
+      "content-type": "application/json"
+    }
+  },
+  "operations": [
+    {
+      "template": {
+        "method": "GET",
+        "url": "/users"
+      },
+      "functions": {
+        "fetchAll": []
+      }
+    }
+  ]
+}

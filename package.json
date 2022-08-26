@@ -12,6 +12,7 @@
     "node": "14 || 16 || 17 || 18"
   },
   "scripts": {
+    "dev": "tsc-watch -b --onSuccess \"node .\"",
     "build": "lb-tsc",
     "build:watch": "lb-tsc --watch",
     "lint": "npm run eslint && npm run prettier:check",
@@ -55,6 +56,9 @@
     "@loopback/rest": "^12.0.2",
     "@loopback/rest-explorer": "^5.0.2",
     "@loopback/service-proxy": "^5.0.2",
+    "dotenv": "^16.0.1",
+    "dotenv-extended": "^2.9.0",
+    "loopback-connector-rest": "^3.7.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {

@@ -1,12 +1,13 @@
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig} from '@loopback/core';
+import {RepositoryMixin} from '@loopback/repository';
+import {RestApplication} from '@loopback/rest';
 import {
   RestExplorerBindings,
   RestExplorerComponent,
 } from '@loopback/rest-explorer';
-import {RepositoryMixin} from '@loopback/repository';
-import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
+import dotenv from 'dotenv';
 import path from 'path';
 import {MySequence} from './sequence';
 
@@ -16,8 +17,10 @@ export class RestConnectorTaskApplication extends BootMixin(
   ServiceMixin(RepositoryMixin(RestApplication)),
 ) {
   constructor(options: ApplicationConfig = {}) {
+    dotenv.config();
     super(options);
 
+    console.log(process.env.PORT);
     // Set up the custom sequence
     this.sequence(MySequence);
 
