@@ -1,0 +1,25 @@
+{
+  "name": "openapi",
+  "connector": "openapi",
+  "spec": "user-openapi.json",
+  "validate": false,
+  "positional": true,
+  "options": {
+    "baseURL": "USER_CRUD_BASE",
+    "headers": {
+      "accept": "application/json",
+      "content-type": "application/json"
+    }
+  },
+  "operations": [
+    {
+      "template": {
+        "method": "GET",
+        "url": "/users"
+      },
+      "functions": {
+        "fetchAll": []
+      }
+    }
+  ]
+}

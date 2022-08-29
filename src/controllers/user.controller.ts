@@ -2,17 +2,21 @@
 
 import {service} from '@loopback/core';
 import {get} from '@loopback/rest';
-import {UserCrud, UserCrudProvider} from '../services';
+import {
+  UserOpenApi,
+  UserOpenApiProvider,
+} from '../services/user-open-api.service';
 
 export class UserController {
   constructor(
-    @service(UserCrudProvider)
-    protected userCrud: UserCrud,
+    @service(UserOpenApiProvider)
+    protected userCrud: UserOpenApi,
   ) {}
 
   @get('/users')
   async find() {
-    const result = await this.userCrud.fetchAll();
-    return result;
+    console.log(this.userCrud);
+    const result = await this.userCrud.apis.UserController.find({});
+    return result.body;
   }
 }
